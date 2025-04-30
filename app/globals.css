@@ -1,26 +1,176 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Prompt', sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+body{
+  margin-inline: 13rem;
+  margin-top: 7rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+nav .container_first_line_nav{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+nav .seachBar{
+  border-radius: 15px;
+  padding: 2px 5px;
+}
+
+nav .logo {
+  background-image: url(https://s.isanook.com/sr/0/images/logo-sanook-n.svg);
+  width: 12.5rem;
+  height: 2rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.imgLotto{
+  background-color: red;
+  border-radius: 50%;
+  height: 24px;
+}
+
+.imgPubg{
+  border-radius: 50%;
+  background-color: rgba(247, 225, 33, 0.925);
+  height: 24px;
+}
+
+.img_nav{
+  margin-right: 10px;
+}
+
+.textTop{
+  margin: auto;
+  font-size: 10px;
+}
+
+.conSeach {
+  margin-left: 20rem;
+  .seachBar{
+    border: 1px solid rgb(114, 113, 113)
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.bgt-1{color: red;}
+.bgt-2{color: rgb(255, 153, 0);}
+.bgt-3{color: rgb(255, 238, 0);}
+.bgt-4{color: rgb(166, 255, 0);}
+.bgt-5{color: rgb(51, 255, 0);}
+.bgt-6{color: rgb(0, 255, 128);}
+.bgt-7{color: rgb(0, 255, 179);}
+.bgt-8{color: rgb(0, 238, 255);}
+.bgt-9{color: rgb(0, 38, 255);}
+.bgt-10{color: rgb(140, 0, 255);}
+.bgt-11{color: rgb(255, 0, 234);}
+.bgt-12{color: rgb(255, 0, 128);}
+.bgt-13{color: rgb(255, 0, 76);}
+
+.headTopic{
+  padding: 8px 6px;
+  font-size: 16px;
+}
+
+.headTopicHome{
+  padding: 8px 6px;
+  font-size: 16px;
+  color: white;
+  background-color: red;
+}
+
+.headTopic:not(:hover) {
+  color: black;
+}
+
+.headTopic:hover{
+  cursor: pointer;
+}
+
+.allContentDrop{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.liner{
+  border-left: 1px solid #333;
+}
+
+.textHeadContent{
+  margin-left: 1.5rem;
+  font-size: 20px;
+  font-weight: bold
+}
+
+.textTopic{
+  margin-left: 1.5rem;
+  transition: all 0.3s;
+}
+
+.textTopic:hover{
+  color: rgb(255, 40, 0);
+}
+
+.span_1{
+  transition: all 0.7s;
+}
+
+.textTopic:not(:hover) .span_1{
+  display: none;
+}
+
+.btn_01{
+  border: 1px solid #b6b6b6;
+  padding: 10px 10px;
+  font-size: 12px;
+  border-radius: 3px;
+  color: black;
+  transition: all 0.5s;
+}
+
+button {
+  cursor: pointer;
+}
+
+.btn_01:hover{
+  cursor: pointer;
+  color: white;
+  background-color: rgb(128, 128, 128);
+}
+
+.dropDownContentContainer {
+  position: absolute;
+  width: 72%;  
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+.dropDownContentContainer.show {
+  max-height: 1000px;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition: all 0.5s;
+  }
+
+.hideChild{
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.showChild{
+  opacity: 1;
+  transition: all 0.5s;
 }
