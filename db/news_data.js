@@ -373,4 +373,3 @@ const newsData = [
   ];
 
   export default newsData;
-  

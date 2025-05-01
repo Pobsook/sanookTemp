@@ -5,12 +5,14 @@ import Link from "next/link";
 import ThaiDate from "@/components/ThaiDate";
 import TimeAgo from "@/components/TimeUpload";
 import newsData from "@/db/news_data"
+import Style from "./Home.module.css"
+import getCategoryColor from '@/components/CategoryColor';
 
 export default function Home() {
   const [thaiDate, setThaiDate] = useState("");
   const [timeAgoText, setTimeAgoText] = useState("");
 
-  const timestamp = new Date(new Date().getTime() - 2 * 60 * 60 * 1000);
+  const timestamp = new Date(new Date().getTime()* 60 * 60 * 1000);
 
   const topNews = newsData
   .sort((a, b) => b.views - a.views)
@@ -23,42 +25,31 @@ export default function Home() {
       <TimeAgo timestamp={timestamp} timeShow={setTimeAgoText} />
 
       <div style={{ display: "flex", gap: "1rem", alignItems: "center", margin: "2rem 0" }}>
-        <h1>เรื่องเด่นวันนี้</h1>
-        <p>{thaiDate}</p>
+        <h1 style={{ fontSize: "27px", fontWeight: "bold" }}>เรื่องเด่นวันนี้</h1>
+        <p style={{fontSize: "13px", paddingTop: "7px"}}>{thaiDate}</p>
       </div>
-
+  
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", height: "65vh" }}>
-        <Link href="" style={{
-          display: "grid",
-          gridTemplateRows: "6.5fr 3.5fr",
-          height: "65vh",
-          border: "1px solid #b6b6b6",
-          borderRadius: "10px",
-          marginRight: "5px"
-          
-        }}>
-          <Image
-            src="/images/ExPic.jpg"
-            alt="news"
-            width={600}
-            height={360}
-            style={{ objectFit: "cover", borderRadius: "5px"}}
-          />
+      <div style={{position: "relative"}}>
+        <Link href="" className={Style.hotTopic}>
+          <div style={{}}>
+            <Image
+              src="/images/ExPic.jpg"
+              alt="news"
+              width={600}
+              height={360}
+              className={Style.imgHotTopic}
+            />
+            <div className={Style.gradient_overlay}></div>
+          </div>
+
           <div style={{ position: "relative", marginTop: "1rem" }}>
-            <h2 style={{
-              fontSize: "27px",
-              marginInline: "10px",
-              display: "-webkit-box",
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-              textOverflow: "ellipsis"
-            }}>
+            <h2 className={Style.HotTopicH2}>
               คอนเทนต์ตัวอย่าง! เด็กเก็บขยะขอบคุณผู้ติดตาม จากแค่ 200 ตอนนี้ยอดพุ่งไปไกลมาก (มีคลิป)
             </h2>
             <div style={{ display: "flex", justifyContent: "space-between", margin: "20px 10px" }}>
               <div style={{ display: "flex", gap: "1rem" }}>
-                <p style={{backgroundColor: "red", color: "white", padding: "2px", borderRadius: "10px", fontSize: "14px"}}>ข่าวบันเทิง</p>
+                <p className={Style.typeNewsHotTopic}>ข่าวบันเทิง</p>
                 <p style={{fontSize: "15px"}}>{timeAgoText}</p>
               </div>
               <div style={{ display: "flex", gap: "8px" }}>
@@ -70,8 +61,11 @@ export default function Home() {
               </div>
             </div>
           </div>
+            <span className={Style.prevHotTopic}>&lt;</span>
+            <span className={Style.nextHotTopic}>&gt;</span>
         </Link>
-
+      </div>
+        
         <div style={{display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr"}}>
           {topNews.map((item, index) => (
             <Link href="" key={index} style={{
@@ -79,25 +73,20 @@ export default function Home() {
               overflow: "hidden",
               margin: "0 5px 5px 5px"
             }}>
-              <Image
-                src={item.image}
-                alt={item.title}
-                width={300}
-                height={180}
-                style={{ objectFit: "cover", width: "300px", height: "180px" }}
-              />
+                <Image
+                  className={Style.imgTopic}
+                  src={item.image}
+                  alt={item.title}
+                  width={300}
+                  height={180}
+                />
               <div style={{ padding: "8px" }}>
-                <h3 style={{
-                  fontSize: "14px",
-                  display: "-webkit-box",
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: "vertical",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis"
-                }}>
+                <h3 className={Style.newsTitle}>
                   {item.title}
                 </h3>
-                <p style={{ fontSize: "12px", color: "#888" }}>{item.category}</p>
+                <p style={{color: getCategoryColor(item.category), fontSize: "12px"}}>
+                  <TimeAgo timestamp={item.timestamp} /> {item.category}
+                </p>
               </div>
             </Link>
           ))}

@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from "react"
 
-export default function TimeAgo({ timestamp, timeShow }) {
+export default function TimeAgo({ timestamp }) {
   const [timeAgo, setTimeAgo] = useState("");
 
   useEffect(() => {
@@ -25,11 +25,5 @@ export default function TimeAgo({ timestamp, timeShow }) {
     }
   }, [timestamp]);
 
-  useEffect(() => {
-    if (timeAgo) {
-      timeShow(timeAgo);
-    }
-  }, [timeAgo, timeShow]);
-
-  return null; // หรือแสดงเวลาใน component นี้ก็ได้ เช่น <span>{timeAgo}</span>
+  return <span style={{ fontSize: "12px", color: "#888" }}>{timeAgo}</span>;
 }
