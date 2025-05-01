@@ -174,3 +174,75 @@ button {
   opacity: 1;
   transition: all 0.5s;
 }
+
+/* สำหรับหน้าจอแท็บเล็ต (≤ 1024px) */
+@media (max-width: 1024px) {
+  body {
+    margin-inline: 3rem;
+    margin-top: 5rem;
+  }
+
+  nav .container_first_line_nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .conSeach {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+
+  .dropDownContentContainer {
+    width: 100%;
+  }
+
+  .textHeadContent,
+  .textTopic {
+    margin-left: 1rem;
+  }
+
+  .headTopic,
+  .headTopicHome {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+/* สำหรับหน้าจอมือถือ (≤ 600px) */
+@media (max-width: 600px) {
+  body {
+    margin-inline: 1rem;
+    margin-top: 4rem;
+  }
+
+  nav .logo {
+    width: 9rem;
+    height: 1.5rem;
+  }
+
+  .textTop {
+    font-size: 8px;
+  }
+
+  .btn_01 {
+    font-size: 10px;
+    padding: 6px 8px;
+  }
+
+  .textHeadContent {
+    font-size: 16px;
+  }
+
+  .textTopic {
+    font-size: 14px;
+  }
+
+  .dropDownContentContainer {
+    width: 100%;
+  }
+
+  .img_nav {
+    margin-right: 5px;
+  }
+}

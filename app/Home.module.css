@@ -151,3 +151,101 @@
 .btnPlusUpdate:hover{
     background-color: #e04412;
 }
+
+/* สำหรับหน้าจอแท็บเล็ต (≤ 1024px) */
+@media (max-width: 1024px) {
+    .containerShowSlide {
+      grid-template-columns: 1fr;
+      height: auto;
+    }
+  
+    .hotTopic {
+      height: auto;
+      grid-template-rows: auto auto;
+    }
+  
+    .imgHotTopic {
+      height: 300px;
+      width: 100%;
+    }
+  
+    .containerHotTopic2 {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+    }
+  
+    .containerUpdateNews {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    .HotTopicH2 {
+      font-size: 22px;
+    }
+  
+    .headTopic {
+      font-size: 24px;
+    }
+}
+  
+  /* สำหรับหน้าจอมือถือ (≤ 600px) */
+@media (max-width: 600px) {
+    .containerShowSlide {
+      grid-template-columns: 1fr;
+      height: auto;
+    }
+  
+    .hotTopic {
+      height: auto;
+      grid-template-rows: auto auto;
+    }
+  
+    .imgHotTopic {
+      height: 200px;
+      width: 100%;
+    }
+  
+    .HotTopicH2 {
+      font-size: 18px;
+      margin-inline: 5px;
+      line-height: 1.3;
+    }
+  
+    .containerHotTopic2 {
+      grid-template-columns: 1fr;
+    }
+  
+    .containerUpdateNews {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  
+    .imgTopic {
+      width: 100%;
+      height: auto;
+    }
+  
+    .headTopic {
+      font-size: 20px;
+      text-align: center;
+    }
+  
+    .btnPlusUpdate {
+      font-size: 16px;
+      padding: 0.6rem;
+    }
+  
+    .prevHotTopic,
+    .nextHotTopic {
+      font-size: 40px;
+      top: 25%;
+    }
+  
+    .prevHotTopic {
+      left: 1rem;
+    }
+  
+    .nextHotTopic {
+      right: 1rem;
+    }
+}
+  
