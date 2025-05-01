@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from "react"
 
-export default function TimeAgo({ timestamp }) {
+export default function TimeAgo({timestamp}) {
   const [timeAgo, setTimeAgo] = useState("");
 
   useEffect(() => {
@@ -25,5 +25,5 @@ export default function TimeAgo({ timestamp }) {
     }
   }, [timestamp]);
 
-  return <span style={{ fontSize: "12px", color: "#888" }}>{timeAgo}</span>;
+  return timeAgo
 }

@@ -1,7 +1,8 @@
 'use client'
 import { useState, useEffect } from "react";
 
-export default function ThaiDate({ setDate }) {
+export default function useThaiDate() {
+  const [thaiDate, setDate] = useState("")
   useEffect(() => {
     const now = new Date();
     const weekday = ["อาทิตย์", "จันทร์", "อังคาร", "พุธ", "พฤหัสบดี", "ศุกร์", "เสาร์"];
@@ -18,5 +19,5 @@ export default function ThaiDate({ setDate }) {
     setDate(`วัน${dayName} ที่ ${day} ${month} ${year}`);
   }, [setDate]);
 
-  return null;
+  return thaiDate;
 }

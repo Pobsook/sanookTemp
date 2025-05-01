@@ -249,7 +249,7 @@ const newsData = [
     },
     {
       image: "/images/ExPic.jpg",
-      timestamp: "2025-04-27T20:20:00Z",
+      timestamp: "2025-04-30T20:20:00Z",
       title: "วงเกิร์ลกรุ๊ปไทยติดชาร์ต Billboard Asia",
       category: "ข่าวบันเทิง",
       views: 9900
